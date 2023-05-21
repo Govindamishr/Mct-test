@@ -26,10 +26,10 @@ jobs:
         distribution: 'temurin'
     - name: Stop the systemd service
       run: |
-        sudo systemctl stop my-spring-app 
+        sudo systemctl stop mct 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Start the systemd service
       run: |
-          sudo systemctl start my-spring-app
+          sudo systemctl start mct
       
