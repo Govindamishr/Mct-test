@@ -26,10 +26,10 @@ jobs:
         distribution: 'temurin'
     - name: Stop the systemd service
       run: |
-        sudo systemctl stop mct 
+        sudo systemctl stop mct.service 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Start the systemd service
       run: |
-          sudo systemctl start mct
+          sudo systemctl start mct.service
       
