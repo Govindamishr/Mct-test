@@ -11,17 +11,17 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up JDK
-      uses: actions/setup-java@v2
+      uses: actions/setup-java@v3
       with:
         java-version: '11'  # Replace with the desired JDK version, e.g., '8' or '16'
+        distribution: 'temurin'
 
     - name: Stop the systemd service
       run: |
         sudo systemctl stop mct.service
-
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
