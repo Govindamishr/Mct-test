@@ -24,6 +24,12 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-        cache: maven
+    - name: Stop the systemd service
+      run: |
+        sudo systemctl stop my-spring-app 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Start the systemd service
+      run: |
+          sudo systemctl start my-spring-app
+      
